@@ -1,0 +1,55 @@
+.top-nav-collapse {
+  background-color: #5e5e5e !important;
+}
+.navbar:not(.top-nav-collapse) {
+  background:  rgba(126, 126, 126, 0.5) !important;
+}
+
+.navbar.navbar-dark .breadcrumb .nav-item .nav-link,
+.navbar.navbar-dark .navbar-nav .nav-item .nav-link {
+  color: #fff;
+  text-shadow: 2px 2px 4px #000000;
+  -webkit-transition: 0.35s;
+  -o-transition: 0.35s;
+  transition: 0.35s; }
+@media (max-width: 768px) {
+  .navbar:not(.top-nav-collapse) {
+      background: #5e5e5e !important;
+  }
+}
+
+.card {
+  background-color: rgba(229, 228, 255, 0.4);
+}
+
+
+.md-form .prefix {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.md-form label {
+  color: #ffffff;
+}
+h6 {
+  line-height: 1.7;
+}
+@media (max-width: 740px) {
+  .full-height,
+  .full-height body,
+  .full-height header,
+  .full-height header .view {
+      height: 1040px;
+  }
+}
+
+#home-wrapper h1 {
+  color: #4a90e2;
+}
+
+#home-wrapper h2 {
+  color: #ff3c2c;
+}
+
+#home-wrapper h3 {
+  color: #ff8500;
+}
