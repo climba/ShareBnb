@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "userdb",
+    "database": "sharebnb_db",
     "host": "localhost",
     "dialect": "mysql"
   },
