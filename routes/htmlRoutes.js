@@ -18,6 +18,10 @@ module.exports = function(app) {
     res.render("newuser", {
     });
   })
+  app.get("/hostregister", function(req, res) {
+    res.render("hostregister", {
+    });
+  })
   
 };
 

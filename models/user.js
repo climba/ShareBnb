@@ -15,70 +15,70 @@ module.exports = function (sequelize, DataTypes) {
         },
         first_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         last_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         phone_no: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         state: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         zip: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         country: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
@@ -89,19 +89,19 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    User.associate = function (models) {
-        // Associating Users with Assets
-        // When an Users is deleted, also delete any associated Assets
-        User.hasMany(models.Asset, {
-            onDelete: "cascade"
-        });
-    };
-    User.associate = function (models) {
-        // Associating Users with Assets
-        // When an Users is deleted, also delete any associated Assets
-        User.hasMany(models.Booking, {
-            onDelete: "cascade"
-        });
-    };
+    // User.associate = function (models) {
+    //     // Associating Users with Assets
+    //     // When an Users is deleted, also delete any associated Assets
+    //     User.hasMany(models.Asset, {
+    //         onDelete: "cascade"
+    //     });
+    // };
+    // User.associate = function (models) {
+    //     // Associating Users with Assets
+    //     // When an Users is deleted, also delete any associated Assets
+    //     User.hasMany(models.Booking, {
+    //         onDelete: "cascade"
+    //     });
+    // };
     return User;
 };
