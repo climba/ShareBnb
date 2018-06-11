@@ -1,5 +1,13 @@
-// var testApiController = require("../controllers/testApi");
+var db = require("../models");
 
 module.exports = function(app) {
-  // app.get("/test", testApiController.index);
+
+  app.post("/api/signup", function(req, res) {
+    db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+
+
 };

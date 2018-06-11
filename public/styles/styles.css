@@ -19,8 +19,12 @@
 }
 
 .card {
-  background-color: rgba(229, 228, 255, 0.4);
+  background-color: rgba(229, 228, 255, 0.9);
 }
+
+/* .card {
+  background-color: rgba(229, 228, 255, 0.4);
+} */
 
 
 .md-form .prefix {

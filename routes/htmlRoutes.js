@@ -9,7 +9,18 @@ module.exports = function(app) {
       msg: "Welcome to sharebnb, your local sharing site!"
     });
   })
+  app.get("/signup", function(req, res) {
+    res.render("signup", {
+      msg: "Welcome to sharebnb, your local sharing site!"
+    });
+  })
+  app.get("/newuser", function(req, res) {
+    res.render("newuser", {
+    });
+  })
   
 };
+
+
 
 
