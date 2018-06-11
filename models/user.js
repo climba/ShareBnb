@@ -96,5 +96,12 @@ module.exports = function (sequelize, DataTypes) {
         onDelete: "cascade"
       });
     };
+    User.associate = function(models) {
+        // Associating Users with Assets
+        // When an Users is deleted, also delete any associated Assets
+        User.hasMany(models.Booking, {
+          onDelete: "cascade"
+        });
+      };  
   return User;
 };

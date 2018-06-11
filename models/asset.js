@@ -65,11 +65,11 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
         },
         booked_from: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.DATE,
         },
 
         booked_untill: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.DATE,
         }
 
     });
