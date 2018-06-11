@@ -10,6 +10,11 @@ module.exports = function(app) {
     });
   })
   
+
+  app.get("/hostregister", function(req, res) {
+    res.render("hostregister", {
+    });
+  })
 };
 
 
