@@ -28,8 +28,8 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Route config -------------------------------------------/
-require("./routes/htmlRoutes")(app);
-require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
