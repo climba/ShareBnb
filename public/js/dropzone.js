@@ -356,7 +356,7 @@ var Dropzone = function (_Emitter) {
          * See the [enqueuing file uploads](#enqueuing-file-uploads) documentation
          * section for more information.
          */
-        autoProcessQueue: false,
+        autoProcessQueue: true,
 
         /**
          * If false, files added to the dropzone will not be queued by default.

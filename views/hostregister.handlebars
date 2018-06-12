@@ -102,8 +102,12 @@
 
                         <div class="">Upload up to 4 images of your asset</div>
 
-                            <div action="/upload" class="dropzone" method="post" id="imageUpload"></div>
-
+                        <div method="post" action="/uploads" class="dropzone" id="dropzone-example">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                            </div>
+                        </div>
+                        
                             {{!-- <div class="input-group mb-3 mt-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Upload</span>

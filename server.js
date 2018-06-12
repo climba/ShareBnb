@@ -2,6 +2,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var methodOverride = require("method-override");
+var multer = require("multer");
+var path = require("path");
 
 var db = require("./models");
 
@@ -12,11 +14,13 @@ var PORT = process.env.PORT || 3000;
 app.use(methodOverride("_method"));
 
 // Parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Parse application/json
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(multer({dest: "public/tmp/"}));
+app.use(express.static(path.join(__dirname, "bower_components")));
 
 // Handlebars config ---------------------------------------/
 app.engine(
