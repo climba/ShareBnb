@@ -65,3 +65,15 @@ h6 {
 #home-wrapper h3 {
   color: #ff8500;
 }
+.jumbotron {
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom:0px;
+  text-shadow: 2px 2px 4px #000000;
+  font-weight: bold;
+  color: white;
+  background:transparent;
+  background-size: cover;
+  height:360px;
+  background-image: url("http://nomon.club/wp-content/uploads/2017/10/backyard-party-themes-best-backyard-party-themes-for-summer-barnyard-themes-for-party.jpg")
+}
