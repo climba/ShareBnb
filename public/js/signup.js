@@ -62,7 +62,8 @@ $(document).ready(function() {
       zip: zip,
       password: password
     }).then(function(data) {
-      window.location.replace(data);
+      // window.location.replace(data);
+      window.location.href = '/members'
       // If there's an error, handle it by throwing up a boostrap alert
     }).catch(handleLoginErr);
   }
