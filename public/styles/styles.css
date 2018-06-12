@@ -18,6 +18,14 @@
   }
 }
 
+#hp-main-h1 {
+  text-shadow: 3px 3px 8px #000000;
+}
+
+#hp-main .h5 {
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .card {
   background-color: rgba(229, 228, 255, 0.9);
 }
