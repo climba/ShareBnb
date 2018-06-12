@@ -83,6 +83,22 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     });
+
+  User.associate = function(models) {
+      // Associating Users with Assets
+      // When an Users is deleted, also delete any associated Assets
+      User.hasMany(models.Asset, {
+        onDelete: "cascade"
+      });
+    };
+    // User.associate = function(models) {
+    //     // Associating Users with Assets
+    //     // When an Users is deleted, also delete any associated Assets
+    //     User.hasMany(models.Booking, {
+    //       onDelete: "cascade"
+    //     });
+    //   };  
+  return User;
     // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
@@ -93,4 +109,5 @@ module.exports = function (sequelize, DataTypes) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
     return User;
+
 };

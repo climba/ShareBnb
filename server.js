@@ -2,6 +2,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var methodOverride = require("method-override");
+var multer = require("multer");
+var path = require("path");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
@@ -20,10 +22,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Parse application/json
 app.use(bodyParser.json());
 app.use(express.static("public"));
+
+app.use(multer({dest: "public/tmp/"}));
+app.use(express.static(path.join(__dirname, "bower_components")));
+
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 // Handlebars config ---------------------------------------/
 app.engine(

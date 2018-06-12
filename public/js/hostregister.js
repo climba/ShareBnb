@@ -1,6 +1,24 @@
 $(document).ready(function() {
     $("#submission_register_host").on("click", function(event) {
         event.preventDefault();
+        
+        jQuery.each( [ "put", "delete" ], function( i, method ) {
+            jQuery[ method ] = function( url, data, callback, type ) {
+              if ( jQuery.isFunction( data ) ) {
+                type = type || callback;
+                callback = data;
+                data = undefined;
+              }
+          
+              return jQuery.ajax({
+                url: url,
+                type: method,
+                dataType: type,
+                data: data,
+                success: callback
+              });
+            };
+          });
 
         var newHost = {
             title: $("#register_type_of_asset").val().trim(),
@@ -11,14 +29,12 @@ $(document).ready(function() {
             city: $("#city").val().trim(),
             state: $("#state").val().trim(),
             zip: $("#zip").val(),
-            country: $("#country").val().trim(),
-            images: $("#imageUpload").dropzone({ url: "../images/" })
+            country: $("#country").val().trim()
         }
-        console.log(newHost);
 
-        $.post("/api/hostregister", newHost)
-            .then(function (data) {
-                console.log("meow");
+        $.put("/api/hostregister", newHost)
+            .then(function(data) {
+                console.log("Form Submission data ====> ", data);
             });
     });
 });
