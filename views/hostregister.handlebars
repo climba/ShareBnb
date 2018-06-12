@@ -1,163 +1,178 @@
-<div class="container">
-	<div id="home">
-		{{> nav/navbar}}
+<section class="view hm-black-light jarallax half-height" data-jarallax='{"speed": 0.2}' style="background-image: url(images/bbq1-sm.jpg);">
+    <div class="full-bg-img">
+        <div class="container">
+            <div id="home">
+                {{> nav/navbar}}
 
-<div class="container mt-5">
-    <div class="row justify-content-start">
-        <div class="col-md-7 mt-5">
-            <div class="card mt-5 mb-5">
+                <div class="container">
+                    <!--Form-->
 
-                <div class="card-header">
-                  Register Your Asset
-                </div>  
+                    <div class="row justify-content-start">
+                        <div class="col-md-7 mt-5">
+                            <div class="card wow fadeInRight mt-5 mb-5" data-wow-delay="0.3s">
 
-                <div class="card-body">
-                    <div class="">What kind of space do you want to rent?</div>
-                    <form id="register_host">
-                        <div class="text-left mt-2">
-                            <label for="register_type_of_asset">Asset</label>
-                            <select class="form-control" id="register_type_of_asset">
-                                <option>Parking</option>
-                                <option>Space</option>
-                                <option>Hamsters</option>
-                            </select>
+                                <div class="card-body">
+                                    <!--Header-->
+                                    <div class="text-center">
+                                        <h3 class="teal-text">
+                                            <i class="fa fa-user teal-text"></i> Register Your Space:</h3>
+                                        <hr class="hr-light">
+                                    </div>
+                                    <!--Body-->
+
+
+                                    <div class="teal-text">What kind of space do you want to rent?</div>
+                                    <form id="register_host">
+                                        <div class="text-left mt-2">
+                                            <label for="register_type_of_asset" class="teal-text" >Asset</label>
+                                            <select class="teal-text form-control" id="register_type_of_asset">
+                                                <option>Parking</option>
+                                                <option>Space</option>
+                                                <option>Hamsters</option>
+                                            </select>
+                                        </div>
+                                        <hr>
+
+                                        <div class="teal-text">How can others utilize your space?</div>
+                                        <div class="row mt-2">
+                                            <div class="col-md-6">
+                                                <label class="teal-text" for="register_use_of_asset">Type</label>
+                                                <select class="teal-text form-control" id="register_use_of_asset">
+                                                    <option>Automobile</option>
+                                                    <option>Recreation Vehicle</option>
+                                                    <option>Boat</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="teal-text" for="register_size_first">Length</label>
+                                                <input type="text" id="register_size_first" placeholder="# in feet" class="teal-text form-control">
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="teal-text" for="register_size_second">Width</label>
+                                                <input class="teal-text form-control" type="text" id="register_size_second" placeholder="# in feet">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="teal-text">Are there any time restrictions?</div>
+                                        <div class="row mt-2">
+                                            <div class="col form-group text-left">
+                                                <label class="teal-text" for="available_time_start">Available From:</label>
+                                                <input class="form-control teal-text" type="text" id="available_time_start" placeholder="9:00 AM">
+                                            </div>
+                                            <div class="col form-group text-left">
+                                                <label class="teal-text" for="available_time_end">To:</label>
+                                                <input class="form-control teal-text" type="text"  id="available_time_end" placeholder="8:00 PM">
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="teal-text">Where is your space located?</div>
+
+                                        <div class="form-row mt-2">
+                                            <div class="col-4">
+                                                <input type="text" class="teal-text form-control" id="country" placeholder="Country">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="teal-text form-control" id="address" placeholder="99 Hamster St">
+                                            </div>
+
+                                            <div class="col-8 mt-2">
+                                                <input type="text" class="teal-text form-control" id="city" placeholder="City">
+                                            </div>
+                                            <div class="col mt-2">
+                                                <input type="text" class="teal-text form-control" id="state" placeholder="State">
+                                            </div>
+                                            <div class="col mt-2">
+                                                <input type="text" class="teal-text form-control" id="zip" placeholder="Zip">
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="teal-text">Description of your asset</div>
+                                        <div class="form-group mt-2">
+                                            <div class="col-md-12">
+                                                <textarea class="teal-text form-control" id="short_descrption" rows="8" placeholder="Gravel driveway, slightly sloped"></textarea>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+
+                                        <div class="teal-text">Price per day</div>
+                                        <div class="row mt-2">
+                                            <div class="col form-group text-left">
+                                                <label class="teal-text" for="register_price_daily">In USD:</label>
+                                                <input class="teal-text form-control" type="text" id="register_price_daily" placeholder="10">
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="teal-text">Upload up to 4 images of your asset</div>
+
+                                        <div id="upload-widget" method="post" action="/upload" class="dropzone">
+
+                                        </div>
+
+
+                                        {{!--
+                                        <div class="input-group mb-3 mt-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </div> --}}
+
+                                        <a id="submission_register_host" class="btn btn-success mt-3 float-right pl-5 pr-5">Next</a>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <hr>
-
-                        <div class="">How can others utilize your space?</div>
-                        <div class="row mt-2">
-                           <div class="col-md-6">
-                                <label for="register_use_of_asset">Type</label>
-                                <select class="form-control" id="register_use_of_asset">
-                                    <option>Automobile</option>
-                                    <option>Recreation Vehicle</option>
-                                    <option>Boat</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="register_size_first">Length</label>
-                                <input type="text" class="form-control" id="register_size_first" placeholder="# in feet"> 
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="register_size_second">Width</label>
-                                <input type="text" class="form-control" id="register_size_second" placeholder="# in feet">
-                                </select>
-                            </div>
-                        </div>
-                        <hr>
-
-                        <div class="">Are there any time restrictions?</div>
-                        <div class="row mt-2">
-                            <div class="col form-group text-left">
-                                <label for="available_time_start">Available From:</label>
-                                <input type="text" class="form-control" id="available_time_start" placeholder="9:00 AM">
-                            </div>
-                            <div class="col form-group text-left">
-                                    <label for="available_time_end">To:</label>
-                                    <input type="text" class="form-control" id="available_time_end" placeholder="8:00 PM">
-                                </div>
-                        </div>
-                        <hr>
-
-                        <div class="">Where is your space located?</div>
-
-                        <div class="form-row mt-2">
-                            <div class="col-4">
-                                <input type="text" class="form-control" id="country" placeholder="Country">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" id="address" placeholder="99 Hamster St">
-                            </div>
-                   
-                            <div class="col-8 mt-2">
-                                <input type="text" class="form-control" id="city" placeholder="City">
-                            </div>
-                            <div class="col mt-2">
-                                <input type="text" class="form-control" id="state" placeholder="State">
-                            </div>
-                            <div class="col mt-2">
-                                <input type="text" class="form-control" id="zip" placeholder="Zip">
-                            </div>
-                        </div>
-                        <hr>
-
-                        <div class="">Description of your asset</div>
-                        <div class="form-group mt-2">
-                            <div class="col-md-12">
-                                <textarea class="form-control" id="short_descrption" rows="8" placeholder="Gravel driveway, slightly sloped"></textarea>
-                            </div>
-                        </div>
-                        <hr>
-                      
-
-                        <div class="">Price per day</div>
-                        <div class="row mt-2">
-                            <div class="col form-group text-left">
-                                <label for="register_price_daily">In USD:</label>
-                                <input type="text" class="form-control" id="register_price_daily" placeholder="10">
-                            </div>
-                        </div>
-                        <hr>
-
-                        <div class="">Upload up to 4 images of your asset</div>
-
-                            <div id="upload-widget" method="post" action="/upload" class="dropzone">
-                            
-                            </div>
-
-
-                            {{!-- <div class="input-group mb-3 mt-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                </div>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                </div>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                </div>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                </div>
-                            </div> --}}
-
-                        <a id="submission_register_host" class="btn btn-primary mt-3 float-right pl-5 pr-5">Next</a>
-                    </form>
+                    </div>
                 </div>
+
+
+
+
+
             </div>
         </div>
     </div>
-</div>
-
-
-
-        
-
-	</div>
-</div>
+</section>
+<h1>{{msg}}</h1>
+<h2>This is our Home Page!</h2>
+{{> examplePartials/partial}}
