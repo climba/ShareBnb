@@ -11,7 +11,8 @@ $(document).ready(function() {
             city: $("#city").val().trim(),
             state: $("#state").val().trim(),
             zip: $("#zip").val(),
-            country: $("#country").val().trim()
+            country: $("#country").val().trim(),
+            images: $("#imageUpload").dropzone({ url: "../images/" })
         }
         console.log(newHost);
 
