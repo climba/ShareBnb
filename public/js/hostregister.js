@@ -18,7 +18,6 @@ $(document).ready(function() {
         $.post("/api/hostregister", newHost)
             .then(function (data) {
                 console.log("meow");
-            })
-
+            });
     });
 });
