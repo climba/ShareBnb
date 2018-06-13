@@ -67,9 +67,34 @@ module.exports = function(app) {
 
   app.post("/api/hostregister", function(req, res) {
     console.log("You are creating a new host!");
-    db.Asset.create(req.body).then(function(dbAsset) {
-      res.json(dbAsset);
+    console.log(req.body);
+    db.Asset.findOne({
+      limit: 1,
+      where: {
+        id: req.user.id
+      },
+      order: [ [ 'createdAt', 'DESC' ] ]
+    }).then(function() {
+     
+      
     });
+  
+
   });
+
+  app.post("/upload", function(req, res) {
+    console.log("HEREREREER")
+    var picPath = req.files.file.path;
+   
+    console.log(req.user.id);
+    db.Asset.create({
+      UserId: req.user.id,
+      image_url_1: picPath
+    }).then(function(asset)
+      {
+        res.json(asset);
+      });
+  });
+
 
 };

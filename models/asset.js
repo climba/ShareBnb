@@ -14,63 +14,67 @@ module.exports = function (sequelize, DataTypes) {
 
         title: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         short_description: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         available_time_start: {
             type: DataTypes.TIME,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         available_time_end: {
             type: DataTypes.TIME,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         image_url_1: {
             type: DataTypes.STRING,
-            allowNull: false,
+            defaultValue: null,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         image_url_2: {
             type: DataTypes.STRING,
-            allowNull: false,
+            defaultValue: null,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         image_url_3: {
             type: DataTypes.STRING,
-            allowNull: false,
+            defaultValue: null,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         image_url_4: {
             type: DataTypes.STRING,
-            allowNull: false,
+            defaultValue: null,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         status: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
@@ -87,46 +91,40 @@ module.exports = function (sequelize, DataTypes) {
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         state: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         zip: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         },
         country: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        images: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         }
+        
     });
 
     Asset.associate = function(models) {

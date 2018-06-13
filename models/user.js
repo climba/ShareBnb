@@ -84,7 +84,7 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-  User.associate = function(models) {
+    User.associate = function(models) {
       // Associating Users with Assets
       // When an Users is deleted, also delete any associated Assets
       User.hasMany(models.Asset, {
