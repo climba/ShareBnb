@@ -7,7 +7,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
-    app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     res.render("index", {
       msg: "Welcome to sharebnb, your local sharing site!"
     });
@@ -16,14 +16,14 @@ module.exports = function (app) {
   app.get("/members", function (req, res) {
     // If the user already has an account send them to the members page
     // if (req.user) {
-      res.render("members");
+    res.render("members");
     // }
     // res.render("signup", {
     //   msg: "Welcome to sharebnb, signup today!!"
     // });
   });
 
-  app.get("/signup", function(req, res) {
+  app.get("/signup", function (req, res) {
     res.render("signup", {
       msg: "Welcome to sharebnb, signup here!"
     });

@@ -17,7 +17,7 @@ $(document).ready(function() {
     var userData = {
       first_name: fnameInput.val().trim(),
       last_name: lnameInput.val().trim(),
-      phone: phoneInput.val().trim(),
+      phone_no: phoneInput.val().trim(),
       email: emailInput.val().trim(),
       address: addressInput.val().trim(),
       city: cityInput.val().trim(),
@@ -27,14 +27,14 @@ $(document).ready(function() {
     };
 
     if (!userData.first_name || !userData.last_name || 
-      !userData.phone || !userData.email || 
+      !userData.phone_no || !userData.email || 
       !userData.address || !userData.city ||
       !userData.state || !userData.zip ||  
       !userData.password) {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.first_name, userData.last_name, userData.phone, 
+    signUpUser(userData.first_name, userData.last_name, userData.phone_no, 
                userData.email, userData.address, userData.city, 
                userData.state, userData.zip, userData.password);
     fnameInput.val("");
@@ -50,11 +50,11 @@ $(document).ready(function() {
 
   // Does a post to the signup route. If succesful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(first_name, last_name, phone, email, address, city, state, zip, password) {
+  function signUpUser(first_name, last_name, phone_no, email, address, city, state, zip, password) {
     $.post("/api/signup", {
       first_name: first_name,
       last_name: last_name,
-      phone: phone,
+      phone_no: phone_no,
       email: email,
       address: address,
       city: city,
@@ -64,6 +64,7 @@ $(document).ready(function() {
     }).then(function(data) {
       // window.location.replace(data);
       window.location.href = '/members'
+      console.log(data.first_name)
       // If there's an error, handle it by throwing up a boostrap alert
     }).catch(handleLoginErr);
   }
