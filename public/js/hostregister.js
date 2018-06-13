@@ -2,23 +2,23 @@ $(document).ready(function() {
     $("#submission_register_host").on("click", function(event) {
         event.preventDefault();
         
-        jQuery.each( [ "put", "delete" ], function( i, method ) {
-            jQuery[ method ] = function( url, data, callback, type ) {
-              if ( jQuery.isFunction( data ) ) {
-                type = type || callback;
-                callback = data;
-                data = undefined;
-              }
+        // jQuery.each( [ "put", "delete" ], function( i, method ) {
+        //     jQuery[ method ] = function( url, data, callback, type ) {
+        //       if ( jQuery.isFunction( data ) ) {
+        //         type = type || callback;
+        //         callback = data;
+        //         data = undefined;
+        //       }
           
-              return jQuery.ajax({
-                url: url,
-                type: method,
-                dataType: type,
-                data: data,
-                success: callback
-              });
-            };
-          });
+        //       return jQuery.ajax({
+        //         url: url,
+        //         type: method,
+        //         dataType: type,
+        //         data: data,
+        //         success: callback
+        //       });
+        //     };
+        //   });
 
         var newHost = {
             title: $("#register_type_of_asset").val().trim(),
