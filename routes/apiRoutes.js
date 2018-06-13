@@ -75,7 +75,16 @@ module.exports = function(app) {
       },
       order: [ [ 'createdAt', 'DESC' ] ]
     }).then(function() {
-     
+
+      // title: req.body.title,
+      // short_description: req.body.short_description,
+      // available_time_start: req.body.available_time_start,
+      // available_time_end: req.body.available_time_end,
+      // address: req.body.address,
+      // city: req.body.city,
+      // state: req.body.state,
+      // zip: req.body.zip,
+      // country: req.body.country
       
     });
   
@@ -94,6 +103,18 @@ module.exports = function(app) {
       {
         res.json(asset);
       });
+  });
+
+  //TRYING TO GET RESULTS PAGE TO P OST STUFF///
+  app.get("/api/assets/:city", function(req, res) {
+    db.Asset.findAll({
+      where: {
+        city: req.body.city_finder
+      },
+      include: [db.city]
+    }).then(function(data) {
+      res.json(data);
+    });
   });
 
 

@@ -52,6 +52,12 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/results", function (req, res) {
+    res.render("results", {
+    });
+  });
+
+
 };
 
 //========================================
