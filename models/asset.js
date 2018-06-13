@@ -5,12 +5,6 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true,
         },  
-        // user_id: {
-        //     type: DataTypes.INTEGER,
-        //     autoIncrement: true,
-        //     allowNull: false
-        // },
-        // Add user ID column that joins with user table
 
         title: {
             type: DataTypes.STRING,
@@ -126,7 +120,6 @@ module.exports = function (sequelize, DataTypes) {
         }
         
     });
-
     Asset.associate = function(models) {
         // We're saying that a Asset should belong to an User
         // An Asset can't be created without an user due to the foreign key constraint
