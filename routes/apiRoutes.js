@@ -80,12 +80,14 @@ module.exports = function (app) {
       state: req.body.state,
       zip: req.body.zip,
       country: req.body.country,
-    }
+    };
+    console.log(option);
+    console.log(req.user.id);
     db.Asset.update(option,
 
       {returning: true, where: {UserId: req.user.id} },
-    ).then(function (asset) {
-      console.log(asset);
+    ).then(function (asset, chicken) {
+      console.log("asset", asset, chicken);
       res.json(asset);
 
     });
@@ -108,11 +110,12 @@ module.exports = function (app) {
 
   //TRYING TO GET RESULTS PAGE TO P OST STUFF///
   app.get("/api/assets/:city", function(req, res) {
+    console.log(req.params.city);
     db.Asset.findAll({
       where: {
-        city: req.body.city_finder
+        city: req.params.city
       },
-      include: [db.city]
+      // include: [db.Asset.city]
     }).then(function(data) {
       res.json(data);
     });
