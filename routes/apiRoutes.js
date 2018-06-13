@@ -67,6 +67,7 @@ module.exports = function (app) {
 
   app.post("/api/hostregister", function (req, res) {
     console.log("You are creating a new host!");
+
     // console.log(req.body);
 
     var option = {
@@ -105,5 +106,17 @@ module.exports = function (app) {
     });
   });
 
-
+  //TRYING TO GET RESULTS PAGE TO P OST STUFF///
+  app.get("/api/assets/:city", function(req, res) {
+    db.Asset.findAll({
+      where: {
+        city: req.body.city_finder
+      },
+      include: [db.city]
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  
+  
 };
