@@ -105,6 +105,7 @@ module.exports = function (app) {
       image_url_1: picPath
     }).then(function (asset) {
       res.json(asset);
+      console.log(picPath);
     });
   });
 
