@@ -22,12 +22,12 @@ $(document).ready(function () {
             $.get("/api/assets/" + city, function (data) {
                 console.log("Listings: ", data);
                 assets = data;
-                // if (!assets || !assets.length) {
-                //     displayEmpty();
-                // }
-                // else {
+                if (!assets || !assets.length) {
+                    displayEmpty();
+                }
+                else {
                     initializeRows();
-                // }
+                }
             });
         };
 
@@ -47,6 +47,7 @@ $(document).ready(function () {
                 assetsToAdd.push(createNewRow(assets[i]));
             }
             resultsContainer.append(assetsToAdd);
+            console.log(assetsToAdd);
         };
 
         // This function constructs a Asset's HTML
