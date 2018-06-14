@@ -52,7 +52,7 @@ $(document).ready(function () {
         // This function constructs a Asset's HTML
         function createNewRow(assets) {
             console.log("construct a row"),
-            $("<p>").text("test")
+            $(resultsContainer).text(assets.short_description)
 
             // var newAssetCard = $("<div>");
             // newAssetCard.addClass("card");
