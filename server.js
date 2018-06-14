@@ -30,7 +30,8 @@ app.use(express.static(path.join(__dirname, "bower_components")));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-
+// app.use('/static', express.static(path.join(__dirname, 'public/tmp')));
+app.use('/static', express.static('public'));
 
 // Handlebars config ---------------------------------------/
 app.engine(

@@ -4,15 +4,6 @@ $(document).ready(function () {
         var city = $("#city_finder").val();
 
         console.log("City is: ", city);
-        // if (city) {
-        //     $.get("/api/assets/" + city).then(function (results) {
-        //         console.log(results);
-
-        //         for (var i = 0; i < results.length; i++) {
-        //             console.log(results[i].city, results[i].title, results[i].id, results[i].short_description);
-        //         }
-        //     });
-        // };
 
         // This function grabs Assets from the database and updates the view
         var resultsContainer = $(".append_results");
@@ -29,25 +20,24 @@ $(document).ready(function () {
 
                     var newPostCardHeading = $("<div>");
                     newPostCardHeading.addClass("card-header");
-                    
-                    var newPostTitle = $("<h2>");
-                    var newPostCategory = $("<h5>");
 
-                    newPostCategory.html("<img src='"+data[i].image_url_1+"' />");
+                    var newPostTitle = $("<h2>");
+                    var newPostCategory = $("<div>");
+
+                    newPostCategory.html("<img height='200px' src='" + data[i].image_url_1 + "' />");
                     newPostCategory.css({
-                      float: "right",
-                      "font-weight": "700",
-                      "margin-top":
-                      "-40px"
-                        });
+                        float: "right",
+                        "font-weight": "700",
+                        "margin-top": "5px"
+                    });
                     var newPostCardBody = $("<div>");
                     newPostCardBody.addClass("card-body");
                     var newPostBody = $("<p>");
                     newPostTitle.text(data[i].title + " in " + data[i].city);
                     newPostBody.html("<strong>Description: \n</strong>" + data[i].short_description);
-                    
+
                     newPostCardHeading.append(newPostTitle);
-                    newPostCardHeading.append(newPostCategory);
+                    newPostCardBody.append(newPostCategory);
                     newPostCardBody.append(newPostBody);
                     newPostCard.append(newPostCardHeading);
                     newPostCard.append(newPostCardBody);
@@ -55,7 +45,7 @@ $(document).ready(function () {
                     // newPostCard.data("post", post);
                     // return newPostCard;
                 }
-                
+
             });
 
         };
