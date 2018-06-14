@@ -89,7 +89,7 @@ module.exports = function (app) {
       //only difference is that you get users list limited to 1
       //entries[0]
       console.log("Rows updated: ", rowsUpdated);
-      res.end();
+      res.json(rowsUpdated);
       
     });
    
