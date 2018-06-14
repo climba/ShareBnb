@@ -1,14 +1,14 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "sharebnb - sharing app for people",
   "version": "1.0.0",
-  "description": "A light weight nodeJS MVC boilerplate with handlebars and sequelize",
+  "description": "A fun app that allows people to share the space in thier yard or driveway",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "postinstall": "./node_modules/.bin/bower install"
   },
-  "author": "Christian Eckenrode",
+  "author": "Mike, Rhishi, Nick, Emalick",
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
