@@ -107,6 +107,9 @@ module.exports = function (app) {
     }).then(function (asset) {
       console.log(asset);
       res.json(asset);
+
+      console.log(picPath);
+
       lastRowId = asset.dataValues.id;
       console.log(lastRowId);
 
