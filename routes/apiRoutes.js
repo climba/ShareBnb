@@ -68,8 +68,6 @@ module.exports = function (app) {
   app.post("/api/hostregister", function (req, res) {
     console.log("You are creating a new host!");
 
-    // console.log(req.body);
-
     var option = {
       title: req.body.title,
       short_description: req.body.short_description,
@@ -81,18 +79,21 @@ module.exports = function (app) {
       zip: req.body.zip,
       country: req.body.country,
     };
-    console.log(option);
-    console.log(req.user.id);
-    db.Asset.update(option,
 
-      {returning: true, where: {UserId: req.user.id} },
-    ).then(function (asset, chicken) {
-      console.log("asset", asset, chicken);
-      res.json(asset);
+    db.Asset.update(option, {
+      limit: 1,
+      where: { id: lastRowId },
+      order: [['createdAt', 'DESC']]
 
+    }).then(function (option) {
+      //only difference is that you get users list limited to 1
+      //entries[0]
+      console.log(option);
     });
   });
 
+
+  var lastRowId;
 
 
   app.post("/upload", function (req, res) {
@@ -104,22 +105,25 @@ module.exports = function (app) {
       UserId: req.user.id,
       image_url_1: picPath
     }).then(function (asset) {
+      console.log(asset);
       res.json(asset);
+      lastRowId = asset.dataValues.id;
+      console.log(lastRowId);
+
     });
   });
 
-  //TRYING TO GET RESULTS PAGE TO P OST STUFF///
-  app.get("/api/assets/:city", function(req, res) {
+  //TRYING TO GET RESULTS PAGE TO POST STUFF///
+  app.get("/api/assets/:city", function (req, res) {
     console.log(req.params.city);
     db.Asset.findAll({
       where: {
         city: req.params.city
       },
       // include: [db.Asset.city]
-    }).then(function(data) {
+    }).then(function (data) {
       res.json(data);
     });
   });
-  
-  
 };
+
