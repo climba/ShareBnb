@@ -1,5 +1,5 @@
 {
-  "name": "sharebnb - sharing app for people",
+  "name": "sharebnb",
   "version": "1.0.0",
   "description": "A fun app that allows people to share the space in thier yard or driveway",
   "main": "server.js",
