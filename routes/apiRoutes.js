@@ -66,9 +66,9 @@ module.exports = function (app) {
   });
 
   app.post("/api/hostregister", function (req, res) {
-    console.log("You are creating a new host!");
+    // console.log("You are creating a new host!");
 
-    var option = {
+    var formInfo = {
       title: req.body.title,
       short_description: req.body.short_description,
       available_time_start: req.body.available_time_start,
@@ -78,20 +78,22 @@ module.exports = function (app) {
       state: req.body.state,
       zip: req.body.zip,
       country: req.body.country,
+      register_price_daily: req.body.register_price_daily,
     };
 
-    db.Asset.update(option, {
+    db.Asset.update(formInfo, {
       limit: 1,
       where: { id: lastRowId },
       order: [['createdAt', 'DESC']]
-
-    }).then(function (option) {
+    }).then(function (rowsUpdated) {
       //only difference is that you get users list limited to 1
       //entries[0]
-      console.log(option);
+      console.log("Rows updated::: ", rowsUpdated);
+      res.end();
+      
     });
+   
   });
-
 
   var lastRowId;
 
@@ -116,12 +118,13 @@ module.exports = function (app) {
     });
   });
 
-  //TRYING TO GET RESULTS PAGE TO POST STUFF///
+  //TRYING TO GET SEARCH PAGE TO FIND BY CITY
   app.get("/api/assets/:city", function (req, res) {
     console.log(req.params.city);
     db.Asset.findAll({
       where: {
         city: req.params.city
+        // title: req.params.title
       },
       // include: [db.Asset.city]
     }).then(function (data) {
