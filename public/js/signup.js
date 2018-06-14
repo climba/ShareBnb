@@ -63,7 +63,7 @@ $(document).ready(function() {
       password: password
     }).then(function(data) {
       // window.location.replace(data);
-      window.location.href = '/members'
+      window.location.href = '/login'
       console.log(data.first_name)
       // If there's an error, handle it by throwing up a boostrap alert
     }).catch(handleLoginErr);
