@@ -88,9 +88,8 @@ module.exports = function (app) {
     }).then(function (rowsUpdated) {
       //only difference is that you get users list limited to 1
       //entries[0]
-      console.log("Rows updated::: ", rowsUpdated);
-      res.end();
-      
+      console.log("Rows updated: ", rowsUpdated);
+      res.json(rowsUpdated);
     });
    
   });
@@ -99,9 +98,10 @@ module.exports = function (app) {
 
 
   app.post("/upload", function (req, res) {
-    console.log("HEREREREER")
+    console.log("Creating host row")
     var picPath = req.files.file.path;
-
+    var picPath = picPath.replace("\\", "\/");
+    var picPath = picPath.replace("public", "");
     // console.log(req.user.id);
     db.Asset.create({
       UserId: req.user.id,
