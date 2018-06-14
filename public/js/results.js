@@ -2,8 +2,10 @@ $(document).ready(function () {
     $("#find_space").on("click", function (event) {
         event.preventDefault();
         var city = $("#city_finder").val();
+        // var title = $("#title_finder").val();
 
         console.log("City is: ", city);
+        // console.log("Tyype is: ", title);
 
         // This function grabs Assets from the database and updates the view
         var resultsContainer = $(".append_results");
@@ -19,7 +21,7 @@ $(document).ready(function () {
                     newPostCard.addClass("card mt-2");
 
                     var newPostCardHeading = $("<div>");
-                    newPostCardHeading.addClass("card-header");
+                    newPostCardHeading.addClass("card-header mt-2");
 
                     var newPostTitle = $("<h2>");
                     var newPostCategory = $("<div>");
@@ -28,19 +30,29 @@ $(document).ready(function () {
                     newPostCategory.css({
                         float: "right",
                         "font-weight": "700",
-                        "margin-top": "5px"
+                        "margin-top": "10px",
+                        "margin-right": "10px",
+                        "martin-bottom": "10px"
                     });
                     var newPostCardBody = $("<div>");
                     newPostCardBody.addClass("card-body");
                     var newPostBody = $("<p>");
+                    newPostBody.addClass("col-sm-6");
                     newPostTitle.text(data[i].title + " in " + data[i].city);
-                    newPostBody.html("<strong>Description: \n</strong>" + data[i].short_description);
+                    newPostBody.html("<h3>Description: </h3>" + data[i].short_description + 
+                                    "<br><br><br><br><h3>Price Per Day:</h3> $" + data[i].register_price_daily);
+
+                    var newButtonThing = $("<div>");
+                    newButtonThing.text("Book");
+                    
+                    newButtonThing.addClass("col-sm-3 mb-3 mr-3 ml-3 btn btn-success wow");
 
                     newPostCardHeading.append(newPostTitle);
                     newPostCardBody.append(newPostCategory);
                     newPostCardBody.append(newPostBody);
                     newPostCard.append(newPostCardHeading);
                     newPostCard.append(newPostCardBody);
+                    newPostCard.append(newButtonThing);
                     $(resultsContainer).append(newPostCard);
                     // newPostCard.data("post", post);
                     // return newPostCard;

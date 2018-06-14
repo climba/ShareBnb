@@ -11,12 +11,14 @@ $(document).ready(function() {
             city: $("#city").val().trim(),
             state: $("#state").val().trim(),
             zip: $("#zip").val(),
-            country: $("#country").val().trim()
+            country: $("#country").val().trim(),
+            register_price_daily: $("#register_price_daily").val().trim()
         }
 
         $.post("/api/hostregister", newHost)
             .then(function(data) {
                 console.log("Form Submission data ====> ", data);
+                window.location.href= "../../search";
             });
     });
 });
