@@ -82,3 +82,7 @@ h6 {
   /* background-image: url("http://nomon.club/wp-content/uploads/2017/10/backyard-party-themes-best-backyard-party-themes-for-summer-barnyard-themes-for-party.jpg") */
   background-image: url("../images/themes-for-party.jpg")
 }
+
+.aForm {
+  margin-bottom: 0px;
+}
