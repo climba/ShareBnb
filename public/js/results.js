@@ -20,6 +20,7 @@ $(document).ready(function () {
         function getAssets() {
             $.get("/api/assets/" + city, function (data) {
                 console.log("Listings: ", data);
+
                 for (var i = 0; i < data.length; i++) {
                     // $(resultsContainer).append($("<div>").addClass("card-header mt-2").text("Result #" + parseInt(parseInt([i]) + parseInt(1))))
 
@@ -56,6 +57,7 @@ $(document).ready(function () {
                 }
                 
             });
+
         };
 
         getAssets();
