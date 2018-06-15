@@ -1,2 +1,2 @@
-DROP DATABASE `sharebnb_db`;
-CREATE DATABASE `sharebnb_db`;
+DROP DATABASE sharebnb_db;
+CREATE DATABASE sharebnb_db;
