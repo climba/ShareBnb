@@ -26,13 +26,15 @@ $(document).ready(function () {
                     var newPostTitle = $("<h2>");
                     var newPostCategory = $("<div>");
 
-                    newPostCategory.html("<img height='200px' src='" + data[i].image_url_1 + "' />");
+                    newPostCategory.html("<img class='rounded' height='200px' src='" + data[i].image_url_1 + "' />");
+                    
                     newPostCategory.css({
                         float: "right",
                         "font-weight": "700",
                         "margin-top": "10px",
                         "margin-right": "10px",
                         "martin-bottom": "10px"
+                        
                     });
                     var newPostCardBody = $("<div>");
                     newPostCardBody.addClass("card-body");
@@ -40,7 +42,7 @@ $(document).ready(function () {
                     newPostBody.addClass("col-sm-6");
                     newPostTitle.text(data[i].title + " in " + data[i].city);
                     newPostBody.html("<h3>Description: </h3>" + data[i].short_description + 
-                                    "<br><br><br><br><h3>Price Per Day:</h3> $" + data[i].register_price_daily);
+                                    "<br><br><h3>Price Per Day:</h3> $" + data[i].register_price_daily);
 
                     var newButtonThing = $("<div>");
                     newButtonThing.text("Book");
