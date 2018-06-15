@@ -1,7 +1,7 @@
-$(document).ready(function() {
-    $("#submission_register_host").on("click", function(event) {
+$(document).ready(function () {
+    $("#submission_register_host").on("click", function (event) {
         event.preventDefault();
-        
+
         var newHost = {
             title: $("#register_type_of_asset").val().trim(),
             short_description: $("#short_descrption").val().trim(),
@@ -16,9 +16,9 @@ $(document).ready(function() {
         }
 
         $.post("/api/hostregister", newHost)
-            .then(function(data) {
+            .then(function (data) {
                 console.log("Form Submission data ====> ", data);
-                window.location.href= "../../search";
+                window.location.href = "../../search";
             });
     });
 });

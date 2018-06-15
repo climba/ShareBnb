@@ -91,11 +91,10 @@ module.exports = function (app) {
       console.log("Rows updated: ", rowsUpdated);
       res.json(rowsUpdated);
     });
-   
+
   });
 
   var lastRowId;
-
 
   app.post("/upload", function (req, res) {
     console.log("Creating host row")
@@ -107,14 +106,11 @@ module.exports = function (app) {
       UserId: req.user.id,
       image_url_1: picPath
     }).then(function (asset) {
-      console.log(asset);
+      // console.log(asset);
       res.json(asset);
-
-      console.log(picPath);
-
+      // console.log(picPath);
       lastRowId = asset.dataValues.id;
-      console.log(lastRowId);
-
+      // console.log(lastRowId);
     });
   });
 
@@ -124,9 +120,7 @@ module.exports = function (app) {
     db.Asset.findAll({
       where: {
         city: req.params.city
-        // title: req.params.title
       },
-      // include: [db.Asset.city]
     }).then(function (data) {
       res.json(data);
     });
