@@ -12,7 +12,7 @@ module.exports = function (app) {
     // They won't get this or even be able to access this page if they aren't authed
     // console.log(req.user)
     res.json("/members");
-    // window.location.href = '/members'
+    // res.render('members')
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -89,14 +89,12 @@ module.exports = function (app) {
       //only difference is that you get users list limited to 1
       //entries[0]
       console.log("Rows updated: ", rowsUpdated);
-      res.end();
-      
+      res.json(rowsUpdated);
     });
-   
+
   });
 
   var lastRowId;
-
 
   app.post("/upload", function (req, res) {
     console.log("Creating host row")
@@ -108,14 +106,11 @@ module.exports = function (app) {
       UserId: req.user.id,
       image_url_1: picPath
     }).then(function (asset) {
-      console.log(asset);
+      // console.log(asset);
       res.json(asset);
-
-      console.log(picPath);
-
+      // console.log(picPath);
       lastRowId = asset.dataValues.id;
-      console.log(lastRowId);
-
+      // console.log(lastRowId);
     });
   });
 
@@ -125,9 +120,7 @@ module.exports = function (app) {
     db.Asset.findAll({
       where: {
         city: req.params.city
-        // title: req.params.title
       },
-      // include: [db.Asset.city]
     }).then(function (data) {
       res.json(data);
     });

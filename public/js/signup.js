@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
   var fnameInput = $("input#first-name");
@@ -12,7 +12,7 @@ $(document).ready(function() {
   var passwordInput = $("input#password");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
+  signUpForm.on("submit", function (event) {
     event.preventDefault();
     var userData = {
       first_name: fnameInput.val().trim(),
@@ -26,17 +26,17 @@ $(document).ready(function() {
       password: passwordInput.val().trim()
     };
 
-    if (!userData.first_name || !userData.last_name || 
-      !userData.phone_no || !userData.email || 
+    if (!userData.first_name || !userData.last_name ||
+      !userData.phone_no || !userData.email ||
       !userData.address || !userData.city ||
-      !userData.state || !userData.zip ||  
+      !userData.state || !userData.zip ||
       !userData.password) {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.first_name, userData.last_name, userData.phone_no, 
-               userData.email, userData.address, userData.city, 
-               userData.state, userData.zip, userData.password);
+    signUpUser(userData.first_name, userData.last_name, userData.phone_no,
+      userData.email, userData.address, userData.city,
+      userData.state, userData.zip, userData.password);
     fnameInput.val("");
     lnameInput.val("");
     phoneInput.val("");
@@ -61,7 +61,7 @@ $(document).ready(function() {
       state: state,
       zip: zip,
       password: password
-    }).then(function(data) {
+    }).then(function (data) {
       // window.location.replace(data);
       window.location.href = '/login'
       console.log(data.first_name)
