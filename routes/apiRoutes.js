@@ -90,7 +90,9 @@ module.exports = function (app) {
       //entries[0]
       console.log("Rows updated: ", rowsUpdated);
       res.json(rowsUpdated);
-    });
+    })
+    client.end();
+    return res.end();
 
   });
 
