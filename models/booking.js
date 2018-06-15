@@ -28,14 +28,14 @@ module.exports = function (sequelize, DataTypes) {
 
     });
 
-    Booking.associate = function(models) {
+    Booking.associate = function (models) {
         // We're saying that a Asset should belong to an User
         // An Asset can't be created without an user due to the foreign key constraint
         Booking.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
+            foreignKey: {
+                allowNull: false
+            }
         });
-      };
+    };
     return Booking;
 };
