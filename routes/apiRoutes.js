@@ -33,7 +33,9 @@ module.exports = function (app) {
 
     }).then(function (user) {
       // res.redirect(307, "/api/signup");
-      res.json(user)
+      client.end();
+      return res.end();
+      res.json(user);
       // res.render('/members')
     }).catch(function (err) {
       console.log(err);
@@ -42,6 +44,7 @@ module.exports = function (app) {
       // res.status(422).json(err.errors[0].message);
     });
   });
+
 
   // Route for logging user out
   app.get("/logout", function (req, res) {
