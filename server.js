@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.use(multer({dest: "public/tmp/"}));
+app.use(multer({ dest: "public/tmp/" }));
 app.use(express.static(path.join(__dirname, "bower_components")));
 
 // We need to use sessions to keep track of our user's login status
@@ -47,8 +47,8 @@ require("./routes/htmlRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync().then(function () {
+  app.listen(PORT, function () {
     console.info(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,

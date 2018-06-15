@@ -15,12 +15,7 @@ module.exports = function (app) {
 
   app.get("/members", function (req, res) {
     // If the user already has an account send them to the members page
-    // if (req.user) {
     res.render("members");
-    // }
-    // res.render("signup", {
-    //   msg: "Welcome to sharebnb, signup today!!"
-    // });
   });
 
   app.get("/signup", function (req, res) {
@@ -34,10 +29,9 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.render("login", {
-      msg: "Welcome to sharebnb, login here!"
-    }
-
+      res.render("login", {
+        msg: "Welcome to sharebnb, login here!"
+      }
     );
   });
 
@@ -61,8 +55,6 @@ module.exports = function (app) {
     res.render("results", {
     });
   });
-
-
 };
 
 
