@@ -12,7 +12,7 @@ module.exports = function (app) {
     // They won't get this or even be able to access this page if they aren't authed
     // console.log(req.user)
     res.json("/members");
-    // window.location.href = '/members'
+    // res.render('members')
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

@@ -86,3 +86,8 @@ h6 {
 .aForm {
   margin-bottom: 0px;
 }
+
+.append_results {
+  overflow: auto;
+  height: 30em;
+}
