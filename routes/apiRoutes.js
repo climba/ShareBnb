@@ -11,9 +11,10 @@ module.exports = function (app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
     // console.log(req.user)
+
+    res.json("/members");
     client.end();
     return res.end();
-    res.json("/members");
     // res.render('members')
   });
 
@@ -67,6 +68,8 @@ module.exports = function (app) {
         email: req.user.email,
         id: req.user.id
       });
+      client.end();
+      return res.end();
     }
   });
 
@@ -95,6 +98,8 @@ module.exports = function (app) {
       //entries[0]
       console.log("Rows updated: ", rowsUpdated);
       res.json(rowsUpdated);
+      client.end();
+      return res.end();
     });
 
   });
@@ -116,6 +121,8 @@ module.exports = function (app) {
       // console.log(picPath);
       lastRowId = asset.dataValues.id;
       // console.log(lastRowId);
+      client.end();
+      return res.end();
     });
   });
 
@@ -128,6 +135,8 @@ module.exports = function (app) {
       },
     }).then(function (data) {
       res.json(data);
+      client.end();
+      return res.end();
     });
   });
 };
