@@ -34,11 +34,15 @@
         <li class="nav-item">
           <a class="nav-link" href="hostregister">Become a host</a>
         </li>
-        {{/if}}
+        {{/if}} {{#if signup}}
+        <li class="nav-item active">
+          <a class="nav-link" href="signup">Sign up</a>
+        </li>
+        {{else}}
         <li class="nav-item">
           <a class="nav-link" href="signup">Sign up</a>
-          </a>
         </li>
+        {{/if}} {{#if signup}}
         <li class="nav-item">
           <a class="nav-link" href="search">Find a space</a>
         </li>
