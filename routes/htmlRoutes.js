@@ -49,24 +49,22 @@ module.exports = function (app) {
 
   app.get("/hostregister", function (req, res) {
     res.render("hostregister",  {
+      members: true,
       user: req.user
     });
   });
 
   app.get("/search", function (req, res) {
     res.render("search", {
+      search: true,
       user: req.user
     });
   });
 
   app.get("/results", function (req, res) {
     res.render("results", {
+      results: true,
       user: req.user
     });
   });
 };
-
-
-
-
-
