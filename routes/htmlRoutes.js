@@ -9,18 +9,22 @@ module.exports = function (app) {
 
   app.get("/", function (req, res) {
     res.render("index", {
-      msg: "Welcome to sharebnb, your local sharing site!"
+      msg: "Welcome to sharebnb, your local sharing site!",
+      home: true,
+      user: req.user
     });
   })
 
   app.get("/members", function (req, res) {
     // If the user already has an account send them to the members page
-    res.render("members");
+    res.render("members", {members:true, user: req.user});
   });
 
   app.get("/signup", function (req, res) {
     res.render("signup", {
-      msg: "Welcome to sharebnb, signup here!"
+      msg: "Welcome to sharebnb, signup here!",
+      signup: true,
+      user: req.user
     });
   });
 
@@ -30,7 +34,9 @@ module.exports = function (app) {
       res.redirect("/members");
     }
       res.render("login", {
-        msg: "Welcome to sharebnb, login here!"
+        msg: "Welcome to sharebnb, login here!",
+        login: true,
+        user: req.user
       }
     );
   });
@@ -42,17 +48,20 @@ module.exports = function (app) {
   });
 
   app.get("/hostregister", function (req, res) {
-    res.render("hostregister", {
+    res.render("hostregister",  {
+      user: req.user
     });
   });
 
   app.get("/search", function (req, res) {
     res.render("search", {
+      user: req.user
     });
   });
 
   app.get("/results", function (req, res) {
     res.render("results", {
+      user: req.user
     });
   });
 };

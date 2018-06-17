@@ -12,18 +12,38 @@
     <div class="collapse navbar-collapse theNavBar" id="navbarSupportedContent-7">
       <ul class="navbar-nav mr-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home
-            <span class="sr-only">(current)</span>
-          </a>
+        {{if page_name === "home"}}
+        <li class="nav-item active"></li>
+        <a class="nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="hostregister">Become a host</a>
+        {{else}}
+        <li class="nav-item"></li>
+        <a class="nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
         </li>
+        {{/if}} {{if page_name === "members"}}
+        <li class="nav-item active"></li>
+        <a class="nav-link" href="hostregister">Become a host</a>
+        </li>
+        {{else}}
+        <li class="nav-item"></li>
+        <a class="nav-link" href="hostregister">Become a host</a>
+        </li>
+        {{/if}}
+
+
+
+
+
+
+
         <li class="nav-item">
           <a class="nav-link" href="search">Find a space</a>
         </li>
-                <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="hostregister">Add a new space</a>
         </li>
 

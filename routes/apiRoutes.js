@@ -68,20 +68,9 @@ module.exports = function (app) {
   app.post("/api/hostregister", function (req, res) {
     // console.log("You are creating a new host!");
 
-    var formInfo = {
-      title: req.body.title,
-      short_description: req.body.short_description,
-      available_time_start: req.body.available_time_start,
-      available_time_end: req.body.available_time_end,
-      address: req.body.address,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip,
-      country: req.body.country,
-      register_price_daily: req.body.register_price_daily,
-    };
+    // db.Asset.findOne({where: {UserId: req.user.id }})
 
-    db.Asset.update(formInfo, {
+    db.Asset.update(req.body, {
       limit: 1,
       where: { id: lastRowId },
       order: [['createdAt', 'DESC']]
@@ -96,13 +85,16 @@ module.exports = function (app) {
   });
 
   var lastRowId;
+  var myUserId;
+
+  var userAndRow = lastRowId + myUserId;
 
   app.post("/upload", function (req, res) {
     console.log("Creating host row")
     var picPath = req.files.file.path;
     var picPath = picPath.replace("\\", "\/");
     var picPath = picPath.replace("public", "");
-    // console.log(req.user.id);
+    console.log(req.user.id);
     db.Asset.create({
       UserId: req.user.id,
       image_url_1: picPath
@@ -110,6 +102,7 @@ module.exports = function (app) {
       // console.log(asset);
       res.json(asset);
       // console.log(picPath);
+      myUserId = asset.dataValues.req.user.id;
       lastRowId = asset.dataValues.id;
       // console.log(lastRowId);
     });
