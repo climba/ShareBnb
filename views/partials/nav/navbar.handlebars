@@ -12,9 +12,7 @@
     <div class="collapse navbar-collapse theNavBar" id="navbarSupportedContent-7">
       <ul class="navbar-nav mr-auto">
 
-        {{#if user}}
-
-         {{#if home}}
+        {{#if user}} {{#if home}}
         <li class="nav-item active">
           <a class="nav-link" href="/">Home
             <span class="sr-only">(current)</span>
@@ -34,22 +32,15 @@
         <li class="nav-item">
           <a class="nav-link" href="hostregister">Become a host</a>
         </li>
-        {{/if}} {{#if signup}}
+        {{/if}} {{#if search}}
         <li class="nav-item active">
-          <a class="nav-link" href="signup">Sign up</a>
+          <a class="nav-link" href="search">Find a space</a>
         </li>
         {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="signup">Sign up</a>
-        </li>
-        {{/if}} {{#if signup}}
         <li class="nav-item">
           <a class="nav-link" href="search">Find a space</a>
         </li>
-
-        {{else}}
-
-         {{#if home}}
+        {{/if}} {{else}} {{#if home}}
         <li class="nav-item active">
           <a class="nav-link" href="/">Home
             <span class="sr-only">(current)</span>
@@ -61,29 +52,24 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        {{/if}} {{#if members}}
+        {{/if}} {{#if signup}}
         <li class="nav-item active">
-          <a class="nav-link" href="hostregister">Become a host</a>
+          <a class="nav-link" href="signup">Sign up</a>
         </li>
         {{else}}
         <li class="nav-item">
-          <a class="nav-link" href="hostregister">Become a host</a>
-        </li>
-        {{/if}}
-        <li class="nav-item">
           <a class="nav-link" href="signup">Sign up</a>
-          </a>
         </li>
+        {{/if}} {{#if search}}
+        <li class="nav-item active">
+          <a class="nav-link" href="search">Find a space</a>
+        </li>
+        {{else}}
         <li class="nav-item">
           <a class="nav-link" href="search">Find a space</a>
         </li>
-
-        {{/if}}
-
+        {{/if}} {{/if}}
       </ul>
-
-
-
 
       <ul class="nav navbar-nav navbar-right">
         {{#if user}}
@@ -91,14 +77,17 @@
           <a class="nav-link" href="logout">Log out</a>
           </a>
         </li>
+        {{else}} {{#if login}}
+        <li class="nav-item active">
+          <a class="nav-link" href="login">Log in</a>
+          </a>
+        </li>
         {{else}}
         <li class="nav-item">
           <a class="nav-link" href="login">Log in</a>
           </a>
         </li>
-        {{/if}}
-
-
+        {{/if}} {{/if}}
       </ul>
 
     </div>
